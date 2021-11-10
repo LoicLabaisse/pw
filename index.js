@@ -1,12 +1,6 @@
-const express = require("express");
 const webpush = require("web-push");
-const bodyParser = require("body-parser");
-const path = require("path");
-require('dotenv').config()
-const PORT = 3001;
-const app = express();
-app.use(bodyParser.json());
-app.use(express.json());
+
+
 
 const vapidKeys = {
   publicKey:
@@ -20,6 +14,5 @@ webpush.setVapidDetails('mailto:test@code.co.uk' ,vapidKeys.publicKey,vapidKeys.
 const pushSubscription = {
 
 }
-webpush.sendNotification(pushSubscription,"test message")
+webpush.sendNotification(pushSubscription,"test message");
 
-app.listen(PORT, () => console.log(`Server started on port : ${PORT}`));
